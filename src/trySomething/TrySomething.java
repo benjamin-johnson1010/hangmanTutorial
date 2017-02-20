@@ -2,16 +2,17 @@ package trySomething;
 public class TrySomething {
 
 	public static void main(String[] args) {
-		Game game = new Game("treehouse");
+		if(args.length == 0){
+			System.out.println("Usage: java Hangman <answer>");
+			System.err.println("answer is required");
+			System.exit(1);
+		}
+		Game game = new Game(args[0]);
 		Prompter prompter = new Prompter(game);
+		while(game.getRemainingTries() > 0 && !game.isWon()){
 		prompter.displayProgress();
-		boolean isHit = prompter.promptForGuess();
-		if (isHit){
-			System.out.print("Hit");
+		prompter.promptForGuess();
 		}
-		else{
-			System.out.print("miss");
-		}
+		prompter.displayOutcome();
 	}
-
 }
