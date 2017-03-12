@@ -10,7 +10,6 @@ public boolean promptForGuess(){
 	Scanner scanner = new Scanner(System.in);
 	boolean isHit = false;
 	boolean isAcceptable = false;
-	
 	do{
 		
 	
